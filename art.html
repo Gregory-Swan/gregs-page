@@ -3,7 +3,22 @@
 
 <head>
 <title>Greg's No-Good Webpage</title>
-<link id="themeStylesheet" rel="stylesheet" href="style.css">
+<script>
+    (function() {
+        const today = new Date();
+        const day = today.getDate(); // Get the day of the month (1-31)
+        const theme = (day % 2 === 0) ? "style-godly.css" : "style-ungodly.css";
+        
+        // Create the <link> tag dynamically
+        const link = document.createElement("link");
+        link.id = "themeStylesheet";
+        link.rel = "stylesheet";
+        link.href = theme;
+
+        // Append to <head> before rendering starts
+        document.head.appendChild(link);
+    })();
+</script>
 </head>
 
 <body>
@@ -61,7 +76,6 @@
 <h2><a href="writing.html">Writing</a></h2>
 <h2><a href="games.html">Games</a></h2>
 
-<script src="theme-switcher.js"></script>
 </body>
   
 </html>
